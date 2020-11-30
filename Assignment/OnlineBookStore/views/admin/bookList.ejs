@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book List</title>
+	<link rel="stylesheet" href="/assets/common/css/style.css">
+</head>
+<body>
+	<%- include('NavBar') %>
+	<div id="workspace">
+		<h1 align='center'>Book List</h1>
+		<br/>
+		<table id="view">
+			<tr>
+				<td>Book Picture</td>
+				<td>Book ID</td>
+				<td>Category</td>
+				<td>Book Title</td>
+				<td>Description</td>
+				<td>Price</td>
+				<td>Action</td>
+			</tr>
+			<% for(var i=0; i< booklist.length; i++ ){ %>
+			<tr>
+				<td><img src="<%=booklist[i].bookpicture%>" alt="Avatar" width="100" height="100"></td>
+				<td><%= booklist[i].bookid %></td>
+				<td><%= booklist[i].category %></td>
+				<td><%= booklist[i].booktitle %></td>
+				<td><%= booklist[i].description %></td>
+				<td><%= booklist[i].price %></td>
+				<td>
+					<a href="/adminController/deleteBook/<%=booklist[i].bookid%>">Delete</a>
+				</td>
+			</tr>
+			<% } %>
+		</table>
+		<div id="searchresult">
+		</div>
+	</div>
+</body>
+</html>
